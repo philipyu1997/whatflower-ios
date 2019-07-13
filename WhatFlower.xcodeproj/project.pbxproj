@@ -54,14 +54,46 @@
 		7204C2DB22D98D8E002E54AA /* WhatFlower */ = {
 			isa = PBXGroup;
 			children = (
+				7204C2F522D98E4F002E54AA /* Controller */,
+				7204C2F722D98E54002E54AA /* Model */,
+				7204C2F422D98E4B002E54AA /* Supporting Files */,
+				7204C2F622D98E52002E54AA /* View */,
+			);
+			path = WhatFlower;
+			sourceTree = "<group>";
+		};
+		7204C2F422D98E4B002E54AA /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				7204C2E822D98D8F002E54AA /* Info.plist */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		7204C2F522D98E4F002E54AA /* Controller */ = {
+			isa = PBXGroup;
+			children = (
 				7204C2DC22D98D8E002E54AA /* AppDelegate.swift */,
 				7204C2DE22D98D8E002E54AA /* ViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		7204C2F622D98E52002E54AA /* View */ = {
+			isa = PBXGroup;
+			children = (
 				7204C2E022D98D8E002E54AA /* Main.storyboard */,
 				7204C2E322D98D8F002E54AA /* Assets.xcassets */,
 				7204C2E522D98D8F002E54AA /* LaunchScreen.storyboard */,
-				7204C2E822D98D8F002E54AA /* Info.plist */,
 			);
-			path = WhatFlower;
+			path = View;
+			sourceTree = "<group>";
+		};
+		7204C2F722D98E54002E54AA /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
