@@ -12,6 +12,7 @@
 		7204C2E222D98D8E002E54AA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7204C2E022D98D8E002E54AA /* Main.storyboard */; };
 		7204C2E422D98D8F002E54AA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7204C2E322D98D8F002E54AA /* Assets.xcassets */; };
 		7204C2E722D98D8F002E54AA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7204C2E522D98D8F002E54AA /* LaunchScreen.storyboard */; };
+		7279462922DC0E9100A42FFE /* FlowerClassifier.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 7279462822DC0E9100A42FFE /* FlowerClassifier.mlmodel */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		7204C2E322D98D8F002E54AA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7204C2E622D98D8F002E54AA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7204C2E822D98D8F002E54AA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7279462822DC0E9100A42FFE /* FlowerClassifier.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = FlowerClassifier.mlmodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +94,7 @@
 		7204C2F722D98E54002E54AA /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				7279462822DC0E9100A42FFE /* FlowerClassifier.mlmodel */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -167,6 +170,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7279462922DC0E9100A42FFE /* FlowerClassifier.mlmodel in Sources */,
 				7204C2DF22D98D8E002E54AA /* ViewController.swift in Sources */,
 				7204C2DD22D98D8E002E54AA /* AppDelegate.swift in Sources */,
 			);
@@ -316,7 +320,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8E7FB8SA95;
-				INFOPLIST_FILE = WhatFlower/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/WhatFlower/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -334,7 +338,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8E7FB8SA95;
-				INFOPLIST_FILE = WhatFlower/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/WhatFlower/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
