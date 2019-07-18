@@ -67,8 +67,11 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             guard let classification = request.results?.first as? VNClassificationObservation else {
                 fatalError("Could not classify image.")
             }
+        
+            let name = classification.identifier.capitalized
+            let percentage = String.localizedStringWithFormat("%.2f", (classification.confidence * 100))
             
-            self.navigationItem.title = classification.identifier.capitalized
+            self.navigationItem.title = "\(name) (\(percentage)%)"
             self.requestInfo(flowerName: classification.identifier)
         }
         
@@ -100,7 +103,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         Alamofire.request(wikipediaURL, method: .get, parameters: parameters).responseJSON { (response) in
             if response.result.isSuccess {
                 print("Got the wikipedia info.")
-                print(response)
+//                print(response)
                 
                 let flowerJSON: JSON = JSON(response.result.value!)
                 let pageId = flowerJSON["query"]["pageids"][0].stringValue
