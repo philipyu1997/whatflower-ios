@@ -33,6 +33,12 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
     }
     
+    override func viewDidLayoutSubviews() {
+        
+        label.sizeToFit()
+        
+    }
+    
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         
         if let userPickedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
@@ -89,7 +95,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             "redirects" : "1",
             "pithumbsize" : "500",
         ]
-
+        
         
         Alamofire.request(wikipediaURL, method: .get, parameters: parameters).responseJSON { (response) in
             if response.result.isSuccess {
@@ -103,7 +109,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
                 
                 self.imageView.sd_setImage(with: URL(string: flowerImageURL))
                 self.label.text = flowerDescription
-                
             } else {
                 print("Failed to get wikipedia info!")
                 print(response)
