@@ -40,7 +40,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
     }
     
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
         
         if let userPickedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
             guard let ciImage = CIImage(image: userPickedImage) else {
@@ -64,7 +64,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         }
         
         // Handles User request to use in model
-        let request = VNCoreMLRequest(model: model) { (request, error) in
+        let request = VNCoreMLRequest(model: model) { (request, _) in
             guard let classification = request.results?.first as? VNClassificationObservation else {
                 fatalError("Could not classify image.")
             }
@@ -88,18 +88,17 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     func requestInfo(flowerName: String) {
         
-        let parameters : [String:String] = [
-            "format" : "json",
-            "action" : "query",
-            "prop" : "extracts|pageimages",
-            "exintro" : "",
-            "explaintext" : "",
-            "titles" : flowerName,
-            "indexpageids" : "",
-            "redirects" : "1",
-            "pithumbsize" : "500",
+        let parameters: [String: String] = [
+            "format": "json",
+            "action": "query",
+            "prop": "extracts|pageimages",
+            "exintro": "",
+            "explaintext": "",
+            "titles": flowerName,
+            "indexpageids": "",
+            "redirects": "1",
+            "pithumbsize": "500"
         ]
-        
         
         Alamofire.request(wikipediaURL, method: .get, parameters: parameters).responseJSON { (response) in
             if response.result.isSuccess {
@@ -128,4 +127,3 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     
 }
-

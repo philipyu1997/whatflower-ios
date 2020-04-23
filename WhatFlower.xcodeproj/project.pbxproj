@@ -12,7 +12,7 @@
 		7204C2E222D98D8E002E54AA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7204C2E022D98D8E002E54AA /* Main.storyboard */; };
 		7204C2E422D98D8F002E54AA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7204C2E322D98D8F002E54AA /* Assets.xcassets */; };
 		7204C2E722D98D8F002E54AA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7204C2E522D98D8F002E54AA /* LaunchScreen.storyboard */; };
-		720DA8BD24517BCD00B90EA5 /* FlowerClassifier.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 720DA8BC24517BCD00B90EA5 /* FlowerClassifier.mlmodel */; };
+		722DDA0024517D55003B1CFB /* FlowerClassifier.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 722DD9FF24517D55003B1CFB /* FlowerClassifier.mlmodel */; };
 		DA4E3ADE2C5CE9217A2C8DA1 /* Pods_WhatFlower.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6101933F3C13C9AABDA7D95A /* Pods_WhatFlower.framework */; };
 /* End PBXBuildFile section */
 
@@ -25,7 +25,7 @@
 		7204C2E322D98D8F002E54AA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7204C2E622D98D8F002E54AA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7204C2E822D98D8F002E54AA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		720DA8BC24517BCD00B90EA5 /* FlowerClassifier.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = FlowerClassifier.mlmodel; sourceTree = "<group>"; };
+		722DD9FF24517D55003B1CFB /* FlowerClassifier.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = FlowerClassifier.mlmodel; sourceTree = "<group>"; };
 		C638DA241325E2C7BD7EF707 /* Pods-WhatFlower.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhatFlower.debug.xcconfig"; path = "Target Support Files/Pods-WhatFlower/Pods-WhatFlower.debug.xcconfig"; sourceTree = "<group>"; };
 		E48B7FA73CEAD87175F93D07 /* Pods-WhatFlower.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhatFlower.release.xcconfig"; path = "Target Support Files/Pods-WhatFlower/Pods-WhatFlower.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -118,7 +118,7 @@
 		7204C2F722D98E54002E54AA /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				720DA8BC24517BCD00B90EA5 /* FlowerClassifier.mlmodel */,
+				722DD9FF24517D55003B1CFB /* FlowerClassifier.mlmodel */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -135,6 +135,7 @@
 				7204C2D622D98D8E002E54AA /* Frameworks */,
 				7204C2D722D98D8E002E54AA /* Resources */,
 				218D4E308F7B035B5FF7EC15 /* [CP] Embed Pods Frameworks */,
+				722DDA0124517D93003B1CFB /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -231,6 +232,23 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		722DDA0124517D93003B1CFB /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -238,7 +256,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				720DA8BD24517BCD00B90EA5 /* FlowerClassifier.mlmodel in Sources */,
+				722DDA0024517D55003B1CFB /* FlowerClassifier.mlmodel in Sources */,
 				7204C2DF22D98D8E002E54AA /* ViewController.swift in Sources */,
 				7204C2DD22D98D8E002E54AA /* AppDelegate.swift in Sources */,
 			);
@@ -390,6 +408,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8E7FB8SA95;
 				INFOPLIST_FILE = "$(SRCROOT)/WhatFlower/Supporting Files/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -409,6 +428,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8E7FB8SA95;
 				INFOPLIST_FILE = "$(SRCROOT)/WhatFlower/Supporting Files/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
