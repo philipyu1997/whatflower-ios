@@ -17,7 +17,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     // Outlets
     @IBOutlet weak var imageView: UIImageView!
-    @IBOutlet weak var label: UILabel!
+    @IBOutlet weak var textView: UITextView!
     
     // Properties
     let imagePicker = UIImagePickerController()
@@ -31,12 +31,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
 //        imagePicker.sourceType = .camera
         imagePicker.sourceType = .photoLibrary
         imagePicker.allowsEditing = false
-        
-    }
-    
-    override func viewDidLayoutSubviews() {
-        
-        label.sizeToFit()
         
     }
     
@@ -111,7 +105,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
                 let flowerImageURL = flowerJSON["query"]["pages"][pageId]["thumbnail"]["source"].stringValue
                 
                 self.imageView.sd_setImage(with: URL(string: flowerImageURL))
-                self.label.text = flowerDescription
+                self.textView.text = flowerDescription
+                self.textView.setContentOffset(.zero, animated: true)
             } else {
                 print("Failed to get wikipedia info!")
                 print(response)
