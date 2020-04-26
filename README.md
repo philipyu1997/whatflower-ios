@@ -15,15 +15,15 @@ WhatFlower is an image recognition app that determines what flower an image is o
 ## Product Spec
 ### User Stories
 
-- [ ] User shall be able to select any image from their photo library for image recognition classification.
-- [ ] User shall be able to see the flower name and Wikipedia description of the selected flower image.
-- [ ] User shall be able to see the confidence percentage of the machine learning model.
+- [X] User shall be able to select any image from their photo library for image recognition classification.
+- [X] User shall be able to see the flower name and Wikipedia description of the selected flower image.
+- [X] User shall be able to see the confidence percentage of the machine learning model.
 
 ## App Walkthrough
 
 Here's a GIF of how the app works:
 
-<img src="ADD_GIF_LINK" width=250><br>
+<img src="https://i.imgur.com/6fumFCb.gif" width=250><br>
 
 ## Open-source libraries used
 
