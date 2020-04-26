@@ -22,7 +22,6 @@
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="375"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="375" id="cat-bt-70f"/>
-                                            <constraint firstAttribute="width" constant="375" id="hRV-GN-N2E"/>
                                         </constraints>
                                     </imageView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2vK-Tp-f79" userLabel="Content View">
