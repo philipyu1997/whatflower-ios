@@ -23,7 +23,7 @@ WhatFlower is an image recognition app that determines what flower an image is o
 
 Here's a GIF of how the app works:
 
-<img src="https://i.imgur.com/6fumFCb.gif" width=250><br>
+<img src="https://i.imgur.com/6kX3qf5.gif" width=250><br>
 
 ## Open-source libraries used
 
