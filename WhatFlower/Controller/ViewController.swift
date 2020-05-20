@@ -13,44 +13,50 @@ import Alamofire
 import SwiftyJSON
 import SDWebImage
 
-class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class ViewController: UIViewController, UINavigationControllerDelegate {
     
-    // Outlets
+    // MARK: - Outlets
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var textView: UITextView!
     
-    // Properties
-    let imagePicker = UIImagePickerController()
-    let wikipediaURL = "https://en.wikipedia.org/w/api.php"
+    // MARK: - Properties
+    private let imagePicker = UIImagePickerController()
+    private let wikipediaURL = "https://en.wikipedia.org/w/api.php"
     
     override func viewDidLoad() {
         
         super.viewDidLoad()
         
+        // Set class as delegate
         imagePicker.delegate = self
-//        imagePicker.sourceType = .camera
-        imagePicker.sourceType = .photoLibrary
+        
+    }
+    
+    // MARK: - IBAction Section
+    
+    @IBAction func cameraTapped(_ sender: UIBarButtonItem) {
+        
         imagePicker.allowsEditing = false
         
-    }
-    
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
-        
-        if let userPickedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
-            guard let ciImage = CIImage(image: userPickedImage) else {
-                fatalError("Cannot convert to CIImage.")
-            }
+        // Present camera, if available
+        if UIImagePickerController.isSourceTypeAvailable(.camera) {
+            print("Camera is available 📸")
+            imagePicker.sourceType = .camera
             
-            detect(image: ciImage)
-            
-            imageView.image = userPickedImage as? UIImage
+            // Present photo library
+        } else {
+            print("Camera 🚫 available so we will use photo library instead")
+            imagePicker.sourceType = .photoLibrary
+            // Present imagePicker source type (either camera or library)
         }
         
-        imagePicker.dismiss(animated: true, completion: nil)
+        present(imagePicker, animated: true, completion: nil)
         
     }
     
-    func detect(image: CIImage) {
+    // MARK: - Private Function Section
+    
+    private func detect(image: CIImage) {
         
         // Create FlowerClassifier model
         guard let model =  try? VNCoreMLModel(for: FlowerClassifier().model) else {
@@ -66,7 +72,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             let name = classification.identifier.capitalized
             let percentage = String.localizedStringWithFormat("%.2f", (classification.confidence * 100))
             
-            self.navigationItem.title = "\(name) (\(percentage)%)"
+            print("\(percentage)% confidence that picture is: \(name)")
+            self.navigationItem.title = "\(name)"
             self.requestInfo(flowerName: classification.identifier)
         }
         
@@ -80,7 +87,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
     }
     
-    func requestInfo(flowerName: String) {
+    private func requestInfo(flowerName: String) {
         
         let parameters: [String: String] = [
             "format": "json",
@@ -97,7 +104,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         Alamofire.request(wikipediaURL, method: .get, parameters: parameters).responseJSON { (response) in
             if response.result.isSuccess {
                 print("Got the wikipedia info.")
-//                print(response)
                 
                 let flowerJSON: JSON = JSON(response.result.value!)
                 let pageId = flowerJSON["query"]["pageids"][0].stringValue
@@ -115,9 +121,25 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
     }
     
-    @IBAction func cameraTapped(_ sender: UIBarButtonItem) {
+}
+
+extension ViewController: UIImagePickerControllerDelegate {
+    
+    // MARK: - UIImagePickerControllerDelegate Section
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
         
-        present(imagePicker, animated: true, completion: nil)
+        if let userPickedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+            guard let ciImage = CIImage(image: userPickedImage) else {
+                fatalError("Cannot convert to CIImage.")
+            }
+            
+            detect(image: ciImage)
+            
+            imageView.image = userPickedImage
+        }
+        
+        imagePicker.dismiss(animated: true, completion: nil)
         
     }
     
