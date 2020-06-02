@@ -4,7 +4,7 @@
 1. [Overview](#Overview)
 2. [Product Specs](#Product-Specs)
 3. [App Walkthrough](#App-Walkthrough)
-4. [Open-Source libraries used](#Open-Source-libraries-used)
+4. [Libraries](#Libraries)
 5. [Credits](#Credits)
 
 ## Overview
@@ -25,12 +25,12 @@ Here's a GIF of how the app works:
 
 <img src="https://user-images.githubusercontent.com/35745973/81493224-95b79a00-9253-11ea-9f31-854bee587da0.gif" width=250><br>
 
-## Open-source libraries used
+## Libraries
 
 - [Alamofire](https://github.com/Alamofire/Alamofire) - An HTTP networking library written in Swift.
-- [SwiftyJSON](https://github.com/SwiftyJSON/SwiftyJSON) - A library that makes it easy to deal with JSON data in Swift
+- [SwiftyJSON](https://github.com/SwiftyJSON/SwiftyJSON) - A library that makes it easy to deal with JSON data in Swift.
 - [SDWebImage](https://github.com/SDWebImage/SDWebImage) - This library provides an async image downloader with cache support.
 
 ## Credits
 
->This is a companion project to The App Brewery's Complete App Development Bootcamp, check out the full course at [www.appbrewery.co](https://www.appbrewery.co/)
+>This is a companion project to The App Brewery's Complete App Development Bootcamp, check out the full course at [www.appbrewery.co](https://www.appbrewery.co/).
