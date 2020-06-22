@@ -23,7 +23,7 @@ WhatFlower is an image recognition app that determines what flower an image is o
 
 Here's a GIF of how the app works:
 
-<img src="https://user-images.githubusercontent.com/35745973/81493224-95b79a00-9253-11ea-9f31-854bee587da0.gif" width=250><br>
+<img src="https://github.com/py415/app-resources/blob/master/ios/ios-whatflower.gif" width=250><br>
 
 ## Libraries
 
